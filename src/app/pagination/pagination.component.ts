@@ -16,6 +16,13 @@ export class PaginationComponent implements OnInit {
     },
 
     {
+      firstName: "Jad",
+      lastName: "Aqra",
+      age: "35",
+      email: "jad@gmail.com"
+    },
+
+    {
       firstName: "moahmmad",
       lastName: "khamlan",
       age: "22",
@@ -79,7 +86,7 @@ export class PaginationComponent implements OnInit {
     },
   ];
 
-  numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  numbers = Array.from(Array(this.people.length).keys());
   personNumber = 0;
 
   person = this.people[0];
@@ -105,7 +112,7 @@ export class PaginationComponent implements OnInit {
   }
 
   personByNumber(x: any) {
-    this.personNumber = x - 1;
+    this.personNumber = x;
     this.person = this.people[this.personNumber];
   }
 }

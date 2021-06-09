@@ -13,12 +13,12 @@
     <div id="pagination">
     <div id="controlButtons">
     <i *ngIf="personNumber != 0" (click) = "previousPerson()" class="fa fa-angle-left moveButton"></i>
-    <i id="counter">&nbsp; {{personNumber + 1}}-10 &nbsp;</i>
+    <i id="counter">&nbsp; {{personNumber + 1}}- {{people.length}} &nbsp;</i>
     <i *ngIf="personNumber != people.length-1" (click) = "nextPerson()" class="fa fa-angle-right moveButton"></i>
     </div>
     <br><br>
 
-    <i *ngFor="let number of numbers" class="pageNumbers" [ngStyle]="{color: personNumber == number-1 ? '#1B0FA2':'black'}" class="pageNumbers" (click) = "personByNumber(number)">{{number}}</i>&nbsp;&nbsp;
+    <i *ngFor="let number of numbers" class="pageNumbers" [ngStyle]="{color: personNumber == number ? '#1B0FA2':'black'}" class="pageNumbers" (click) = "personByNumber(number)">{{number + 1}}</i>&nbsp;&nbsp;
     
 
     <br><br>
