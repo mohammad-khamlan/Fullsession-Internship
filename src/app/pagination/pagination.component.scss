@@ -1,0 +1,33 @@
+#container{
+}
+
+#pagination{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 3%;
+    background-color: white;
+    margin: 150px auto;
+    font-family: Raleway;
+    padding: 40px;
+    width: 40%;
+    min-width: 300px;
+}
+
+.moveButton{
+    font-size:48px;
+    cursor: pointer;
+}
+
+.pageNumbers{
+    font-size:48px;
+    margin-left: 4%;
+    cursor: pointer;
+}
+
+#counter{
+    font-size:48px;
+}
+
+#controlButtons{
+    margin-left: 30%;
+}
+
