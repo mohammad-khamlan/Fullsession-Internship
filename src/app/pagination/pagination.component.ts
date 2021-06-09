@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GetPersonService } from '../get-person.service';
+import { GetPersonService } from './services/get-person.service';
 
 @Component({
   selector: 'app-pagination',

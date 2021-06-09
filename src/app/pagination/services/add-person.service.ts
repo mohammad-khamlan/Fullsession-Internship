@@ -83,7 +83,7 @@ export class AddPersonService {
       lastName: "ahmad",
       age: "29",
       email: "saleem@gmail.com"
-    },
+    }
   ];
 
   getPeople(): Array<{}> {

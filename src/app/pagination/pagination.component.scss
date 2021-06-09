@@ -23,6 +23,12 @@
     cursor: pointer;
 }
 
+.pageNumbers:hover {
+    border-bottom: 2px solid transparent;
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+
 #counter{
     font-size:48px;
 }
