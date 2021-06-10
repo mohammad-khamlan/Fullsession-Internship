@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div id="container">
 
     <div id="pagination">
 
@@ -19,12 +18,11 @@
     </div>
     <br><br>
 
-    <i *ngFor="let number of numbers" class="pageNumbers" [ngStyle]="{color: personNumber == number ? '#1B0FA2':'black'}" class="pageNumbers" (click) = "personByNumber(number)">{{number}}</i>&nbsp;&nbsp;
-    
+    <i *ngFor="let person of people; let number = index" class="pageNumbers" [ngStyle]="{color: personNumber == number ? '#1B0FA2':'black'}" class="pageNumbers" (click) = "personByNumber(number)">{{number+1}}</i>&nbsp;&nbsp;
+
     <br><br>
     <p *ngFor="let item of person | keyvalue">{{item.key}}: {{item.value}}</p>
 
-    </div>
     </div>
 </body>
 </html>

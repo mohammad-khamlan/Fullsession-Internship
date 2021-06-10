@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GetPersonService } from './services/get-person.service';
+import { GetPersonService } from '../services/get-person.service';
 
 @Component({
   selector: 'app-pagination',
@@ -12,7 +12,6 @@ export class PaginationComponent implements OnInit {
 
   public people: Array<{}> = [];
 
-  numbers: Array<{}> = [];
   personNumber = 0;
 
   person = {};
@@ -21,7 +20,6 @@ export class PaginationComponent implements OnInit {
 
   ngOnInit(): void {
     this.people = this.selector.getPeople();
-    this.numbers = Array.from({ length: this.people.length }, (_, number) => number + 1);
     this.person = this.people[0]
   }
 
@@ -40,7 +38,7 @@ export class PaginationComponent implements OnInit {
   }
 
   personByNumber(x: any) {
-    this.personNumber = x - 1;
+    this.personNumber = x;
     this.person = this.people[this.personNumber];
   }
 }

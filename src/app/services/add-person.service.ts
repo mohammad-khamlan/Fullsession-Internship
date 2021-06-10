@@ -72,13 +72,6 @@ export class AddPersonService {
     },
 
     {
-      firstName: "tareq",
-      lastName: "mohammad",
-      age: "27",
-      email: "tareq@gmail.com"
-    },
-
-    {
       firstName: "saleem",
       lastName: "ahmad",
       age: "29",
@@ -88,6 +81,10 @@ export class AddPersonService {
 
   getPeople(): Array<{}> {
     return this.people;
+  }
+
+  addPerson(person: { firstName: any; lastName: any; age: any; email: any; }): void {
+    this.people.push(person);
   }
 
   constructor() { }
