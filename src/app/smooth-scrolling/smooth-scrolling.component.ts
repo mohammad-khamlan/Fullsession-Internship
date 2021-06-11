@@ -7,8 +7,7 @@ import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 })
 export class SmoothScrollingComponent implements OnInit {
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   constructor() { }
 
