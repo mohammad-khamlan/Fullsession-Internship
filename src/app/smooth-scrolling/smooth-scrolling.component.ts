@@ -57,6 +57,8 @@ export class SmoothScrollingComponent implements OnInit {
 
 
   autoScrolling(): void {
+    this.scrollframe.nativeElement.scrollTop = 0;
+    this.counter = 0;
     let scrollAmount = 72;
     try {
       var interval = setInterval(() => {
