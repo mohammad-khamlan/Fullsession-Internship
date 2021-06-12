@@ -1,9 +1,10 @@
 .frame {
-  height: 70px;
+  height: 500px;
   z-index: 100;
   top: 0;
   background-color: #008CBA;
   overflow: scroll;
+  scroll-behavior: smooth;
   width: 50%;
 
   border-radius: 3%;
@@ -15,7 +16,7 @@
 .event {
   margin: 20px;
   background-color: white;
-  height: 50px;
+  height: 100px;
   border: 10px solid;
 }
 
