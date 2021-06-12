@@ -2,10 +2,10 @@
   height: 500px;
   z-index: 100;
   top: 0;
-  background-color: #008CBA;
+  background-color: #e4e8eb;
   overflow: scroll;
   scroll-behavior: smooth;
-  width: 50%;
+  width: 30%;
 
   border-radius: 3%;
   margin: 100px auto;
@@ -32,4 +32,15 @@
   cursor: pointer;
   background-color: #008CBA;
   margin-left: 45%;
+}
+
+.eventContent{
+  margin-top: 20%;
+  margin-left: 40%;
+}
+
+.icon{
+  margin-top: 5%;
+  margin-left: 5%;
+  font-size: 25px;
 }
