@@ -1,5 +1,8 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { BehaviorSubject, Observable } from 'rxjs';
+=======
+>>>>>>> edit bootstrap links
 
 @Component({
   selector: 'smooth-scrolling',
@@ -67,13 +70,21 @@ export class SmoothScrollingComponent implements OnInit {
   autoScrolling(): void {
     this.scrollframe.nativeElement.scrollTop = 0;
     this.counter = 0;
+<<<<<<< HEAD
     let scrollAmount = 120;
+=======
+    let scrollAmount = this.scrollframe.nativeElement.scrollHeight / this.events.length / 2;
+>>>>>>> edit bootstrap links
     let time = this.events[this.counter].duration;
 
     var interval = setInterval(() => {
       if (this.counter == this.events.length - 2) clearInterval(interval);
       setTimeout(() => {
+<<<<<<< HEAD
         console.log(this.events[this.counter].duration);
+=======
+        console.log(this.scrollframe.nativeElement.scrollHeight);
+>>>>>>> edit bootstrap links
         this.scrollframe.nativeElement.scrollTop += scrollAmount;
         this.counter += 1;
       }, this.events[this.counter].duration);
@@ -90,6 +101,7 @@ export class SmoothScrollingComponent implements OnInit {
     // } catch (err) { }
   }
 
+<<<<<<< HEAD
 
   // ngOnInit(): void {
   //   setInterval(() => {
@@ -97,4 +109,6 @@ export class SmoothScrollingComponent implements OnInit {
   //   }, 500);
   // }
 
+=======
+>>>>>>> edit bootstrap links
 }
