@@ -79,20 +79,22 @@ export class SmoothScrollingComponent implements OnInit {
         // Will display time in 10:30:23 format
         var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
-        this.time[index] = formattedTime;
 
         // Compute duration time for each event
+        var secondsDifference;
         if (index + 1 != this.data.length) {
           var currentTimestamp = this.data[index].timestamp * 1000;
           var nextTimestamp = this.data[index + 1].timestamp * 1000;
 
           var difference = nextTimestamp - currentTimestamp;
-          var secondsDifference = Math.floor(difference / 60 / 60);
-          this.duration[index] = secondsDifference;
+          secondsDifference = Math.floor(difference / 60 / 60);
+
         }
 
         if ((this.data[index].type === 3 && this.data[index].data.source === 2 && this.data[index].data.type === 2) || this.data[index].type === 4) {
           this.events.push(this.data[index]);
+          this.time.push(formattedTime);
+          this.duration.push(secondsDifference);
         }
       }
 
@@ -120,7 +122,7 @@ export class SmoothScrollingComponent implements OnInit {
       setTimeout(() => {
         this.scrollframe.nativeElement.scrollTop += scrollAmount;
         this.counter += 1;
-      }, this.events[this.counter].duration);
+      }, this.duration[this.counter]);
     }, 1000);
 
 
