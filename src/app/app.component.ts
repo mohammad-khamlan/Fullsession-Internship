@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-<<<<<<< HEAD
-=======
 interface Country {
   name: string;
   flag: string;
@@ -9,16 +7,12 @@ interface Country {
   population: number;
 }
 
->>>>>>> edit bootstrap links
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-<<<<<<< HEAD
-  title = 'smooth-scrolling';
-=======
   countries: Country[] = [
     {
       name: 'Russia',
@@ -39,5 +33,4 @@ export class AppComponent {
       population: 324459463
     },
   ];
->>>>>>> edit bootstrap links
 }

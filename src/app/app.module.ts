@@ -3,11 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-<<<<<<< HEAD
-=======
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
->>>>>>> edit bootstrap links
 import { SmoothScrollingComponent } from './smooth-scrolling/smooth-scrolling.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,12 +13,8 @@ import { SmoothScrollingComponent } from './smooth-scrolling/smooth-scrolling.co
   ],
   imports: [
     BrowserModule,
-<<<<<<< HEAD
-    AppRoutingModule
-=======
     AppRoutingModule,
-    TooltipModule.forRoot()
->>>>>>> edit bootstrap links
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

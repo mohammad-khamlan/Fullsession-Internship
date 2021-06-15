@@ -5,7 +5,7 @@
   background-color: #e4e8eb;
   overflow: scroll;
   scroll-behavior: smooth;
-  width: 30%;
+  width: 40%;
 
   border-radius: 3%;
   margin: 100px auto;
@@ -16,7 +16,7 @@
 .event {
   margin: 20px;
   background-color: white;
-  height: 100px;
+  height: 150px;
   border: 10px solid;
 }
 
@@ -31,20 +31,16 @@
   margin: 4px 2px;
   cursor: pointer;
   background-color: #008CBA;
-<<<<<<< HEAD
-  margin-left: 45%;
-=======
   margin-left: 47%;
->>>>>>> edit bootstrap links
 }
 
 .eventContent{
-  margin-top: 20%;
-  margin-left: 40%;
+  margin-top: 30%;
+  margin-left: 25%;
 }
 
 .icon{
-  margin-top: 5%;
+  margin-top: 8%;
   margin-left: 5%;
   font-size: 25px;
 }

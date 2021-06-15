@@ -1,33 +1,13 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smooth Scrolling</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-
-=======
->>>>>>> edit bootstrap links
 <div class="frame" #scrollframe>
-  <div *ngFor="let event of events" [ngStyle]="{'border-color': counter == event.index ? 'gray':'white'}" class="event row" [attr.id]=" 'event' + event.index">
-        <i *ngIf="event.type == 2" class="fa fa-chevron-circle-down icon"></i>
-        <i *ngIf="event.type == 0" class="fa fa-mouse-pointer icon"></i>  
-        <i *ngIf="event.type == 1" class="fa fa-window-maximize icon"></i>   
-        <div class="col-sm"><p class = "eventContent">{{event.description}}</p></div>                       
-        <div class="col-sm"><p class = "eventContent">{{event.type}}</p></div>
-        <div class="col-sm"><p class = "eventContent">00:0{{event.index}}</p></div>
-
+    <div *ngFor="let event of events; let i = index" [ngStyle]="{'border-color': counter == i ? 'gray':'white'}" class="event row">
+        <i *ngIf="event.type == 3" class="fa fa-mouse-pointer icon"></i>  
+        <i *ngIf="event.type == 4" class="fa fa-window-maximize icon"></i>   
+        <div *ngIf="event.type == 3 && event.data.source == 2 && event.data.type == 2" class="col-sm"><p class = "eventContent">Click</p></div>        
+        <div *ngIf="event.type == 4" class="col-sm"><p class = "eventContent">Visit page event</p></div>                                      
+        <div *ngIf="event.type == 3 || event.type == 4" class="col-sm"><p class = "eventContent">{{event.type}}</p></div>
+        <div class="col-sm"><p class = "eventContent">{{time[i]}}</p></div>
+        <div class="col-sm"><p class = "eventContent">{{duration[i]}}</p></div>
   </div>
 </div>
 
 <button (click) = "autoScrolling()" id="playButton">Play</button>
-<<<<<<< HEAD
-</body>
-</html>
-=======
->>>>>>> edit bootstrap links
