@@ -83,12 +83,11 @@ export class SmoothScrollingComponent implements OnInit {
         // Compute duration time for each event
         var secondsDifference;
         if (index + 1 != this.data.length) {
-          var currentTimestamp = this.data[index].timestamp * 1000;
-          var nextTimestamp = this.data[index + 1].timestamp * 1000;
+          var currentTimestamp = this.data[index].timestamp;
+          var nextTimestamp = this.data[index + 1].timestamp;
 
           var difference = nextTimestamp - currentTimestamp;
-          secondsDifference = Math.floor(difference / 60 / 60);
-
+          secondsDifference = Math.floor(difference);
         }
 
         if ((this.data[index].type === 3 && this.data[index].data.source === 2 && this.data[index].data.type === 2) || this.data[index].type === 4) {
@@ -122,7 +121,7 @@ export class SmoothScrollingComponent implements OnInit {
       setTimeout(() => {
         this.scrollframe.nativeElement.scrollTop += scrollAmount;
         this.counter += 1;
-      }, this.duration[this.counter]);
+      }, this.duration[this.counter] * 1000);
     }, 1000);
 
 
