@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { AddCommentService } from '../services/add-comment.service';
 
 @Component({
   selector: 'smooth-scrolling',
@@ -58,10 +59,13 @@ export class SmoothScrollingComponent implements OnInit {
   time: any = [];
   duration: any = [];
   data: any = [];
+  commentData: any = {};
+  indexCounter = 0;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private selector: AddCommentService) { }
 
   ngOnInit() {
+
     this.httpClient.get("assets/session-events.json").subscribe(data => {
       console.log(data);
       this.data = data;
@@ -91,9 +95,11 @@ export class SmoothScrollingComponent implements OnInit {
         }
 
         if ((this.data[index].type === 3 && this.data[index].data.source === 2 && this.data[index].data.type === 2) || this.data[index].type === 4) {
+          this.data[index].index = this.indexCounter;
           this.events.push(this.data[index]);
           this.time.push(formattedTime);
           this.duration.push(secondsDifference);
+          this.indexCounter += 1;
         }
       }
 
@@ -105,6 +111,7 @@ export class SmoothScrollingComponent implements OnInit {
 
 
   counter = 0;
+  timer = 0;
 
   @ViewChild('scrollframe')
   scrollframe!: ElementRef;
@@ -117,12 +124,12 @@ export class SmoothScrollingComponent implements OnInit {
     let time = this.events[this.counter].duration;
 
     var interval = setInterval(() => {
-      if (this.counter == this.events.length - 2) clearInterval(interval);
-      setTimeout(() => {
-        this.scrollframe.nativeElement.scrollTop += scrollAmount;
-        this.counter += 1;
-      }, this.duration[this.counter] * 1000);
-    }, 1000);
+      this.commentData = this.selector.getCommentData();
+      if (this.counter == this.events.length - 1) clearInterval(interval);
+      this.scrollframe.nativeElement.scrollTop += scrollAmount;
+      this.counter += 1;
+      console.log("cd", this.commentData);
+    }, 2000);
 
 
     // try {
