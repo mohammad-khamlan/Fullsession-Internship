@@ -1,0 +1,19 @@
+<div class="frame" #scrollframe>
+
+    <div class="header row">
+        <div class="col-sm">
+            <h4 id="headerContent">Comment Content</h4>
+        </div>
+
+        <div class="col-sm">
+            <h4 id="headerContent">Comment Time</h4>
+        </div>
+    </div>
+
+    <div *ngFor="let comment of comments" class="event row">
+        <div *ngFor="let item of comment | keyvalue" class="col-sm">
+            <p class="commentContent">{{item.value}}</p>
+        </div>
+
+    </div>
+</div>

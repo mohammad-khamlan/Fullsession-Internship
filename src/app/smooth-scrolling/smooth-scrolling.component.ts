@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { AddCommentService } from '../services/add-comment.service';
+import { FacadeService } from '../services/Facade.service';
 
 @Component({
   selector: 'smooth-scrolling',
@@ -62,7 +62,7 @@ export class SmoothScrollingComponent implements OnInit {
   commentData: any = {};
   indexCounter = 0;
 
-  constructor(private httpClient: HttpClient, private selector: AddCommentService) { }
+  constructor(private httpClient: HttpClient, private selector: FacadeService) { }
 
   ngOnInit() {
 
@@ -71,23 +71,14 @@ export class SmoothScrollingComponent implements OnInit {
       this.data = data;
 
       for (let index = 0; index < this.data.length; index++) {
-        var date = new Date(this.data[index].timestamp * 1000);
 
-        // Hours part from the timestamp
-        var hours = date.getHours();
-        // Minutes part from the timestamp
-        var minutes = "0" + date.getMinutes();
-        // Seconds part from the timestamp
-        var seconds = "0" + date.getSeconds();
-
-        // Will display time in 10:30:23 format
-        var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
+        var currentTimestamp = this.data[index].timestamp;
+        var firstTimestamp = this.data[0].timestamp;
+        var occuranceTime = Math.ceil(currentTimestamp - firstTimestamp);
 
         // Compute duration time for each event
         var secondsDifference;
         if (index + 1 != this.data.length) {
-          var currentTimestamp = this.data[index].timestamp;
           var nextTimestamp = this.data[index + 1].timestamp;
 
           var difference = nextTimestamp - currentTimestamp;
@@ -96,8 +87,9 @@ export class SmoothScrollingComponent implements OnInit {
 
         if ((this.data[index].type === 3 && this.data[index].data.source === 2 && this.data[index].data.type === 2) || this.data[index].type === 4) {
           this.data[index].index = this.indexCounter;
+          console.log(occuranceTime.toFixed(0));
           this.events.push(this.data[index]);
-          this.time.push(formattedTime);
+          this.time.push(occuranceTime);
           this.duration.push(secondsDifference);
           this.indexCounter += 1;
         }
@@ -118,18 +110,27 @@ export class SmoothScrollingComponent implements OnInit {
 
 
   autoScrolling(): void {
+    this.selector.startTimer(1);
     this.scrollframe.nativeElement.scrollTop = 0;
     this.counter = 0;
+    this.timer = 0;
     let scrollAmount = 150;//this.scrollframe.nativeElement.scrollHeight / this.events.length / 2;
     let time = this.events[this.counter].duration;
 
+
     var interval = setInterval(() => {
       this.commentData = this.selector.getCommentData();
-      if (this.counter == this.events.length - 1) clearInterval(interval);
-      this.scrollframe.nativeElement.scrollTop += scrollAmount;
-      this.counter += 1;
-      console.log("cd", this.commentData);
-    }, 2000);
+      if (this.counter == this.events.length - 1) {
+        this.selector.startTimer(0);
+        clearInterval(interval);
+      }
+
+      if (this.timer == this.time[this.counter]) {
+        this.scrollframe.nativeElement.scrollTop += scrollAmount;
+        this.counter += 1;
+      }
+      this.timer += 1;
+    }, 1);
 
 
     // try {

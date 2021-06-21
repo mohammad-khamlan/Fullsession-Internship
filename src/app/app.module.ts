@@ -7,12 +7,15 @@ import { SmoothScrollingComponent } from './smooth-scrolling/smooth-scrolling.co
 import { HttpClientModule } from '@angular/common/http';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { FormsModule } from '@angular/forms';
+import { CommentsComponent } from './comments/comments.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SmoothScrollingComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

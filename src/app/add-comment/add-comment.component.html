@@ -19,8 +19,8 @@
                 <form #userForm="ngForm" (ngSubmit)="addComment(userForm.value)">
                     <label for="textArea">Please write your comment here</label>
                     <textarea ngModel class="form-control" name="textArea" id="textArea" rows="3"></textarea><br>
-                    <button type="submit" class="btn btn-primary formButton">Add Comment</button>
-                    <button type="button" class="btn btn-secondary formButton" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary formButton" (click)="addComment(userForm.value)">Add
+                        Comment</button>
                 </form>
             </div>
         </div>

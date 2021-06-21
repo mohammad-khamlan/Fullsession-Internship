@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
-import { AddCommentService } from '../services/add-comment.service';
+import { FacadeService } from '../services/Facade.service';
 
 @Component({
   selector: 'add-comment',
@@ -9,30 +9,36 @@ import { AddCommentService } from '../services/add-comment.service';
 })
 export class AddCommentComponent implements OnInit {
 
-  counter = 0;
+  timer = 0;
   commentTime = 0;
-  commentData = {};
+  timerFlag = 0;
 
-  constructor(private selector: AddCommentService) { }
+  constructor(private selector: FacadeService) { }
 
   ngOnInit(): void {
+    this.timerFlag = this.selector.getTimerFlag();
+    this.startAndStopTimer();
+  }
+
+  startAndStopTimer() {
     var interval = setInterval(() => {
-      this.counter += 1;
-    }, 2000);
+      // if (this.timerFlag == 0) clearInterval(interval);
+      this.timer += 1;
+    }, 1)
   }
 
   addCommentClick() {
-    this.commentTime = this.counter;
+    this.commentTime = this.timer;
   }
 
   addComment(data: any) {
     const comment = data.textArea;
-    this.commentData = {
-      "commentContent": comment,
-      "commentTime": this.commentTime
+    const commentData = {
+      commentContent: comment,
+      commentTime: this.commentTime
     }
 
-    this.selector.addComment(this.commentData);
+    this.selector.addComment(commentData);
   }
 
 

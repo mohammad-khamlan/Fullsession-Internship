@@ -1,0 +1,36 @@
+.frame {
+  height: 500px;
+  z-index: 100;
+  top: 0;
+  background-color: #e4e8eb;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  width: 40%;
+
+  border-radius: 3%;
+  margin: 100px auto;
+  font-family: Raleway;
+  min-width: 300px;
+}
+
+.commentContent{
+  margin-top: 20%;
+  margin-left: 40%;
+}
+
+.event {
+  margin: 20px;
+  background-color: white;
+  height: 150px;
+}
+
+.header{
+  margin: 20px;
+  background-color: white;
+  height: 80px;
+}
+
+#headerContent{
+  margin: 20px auto;
+  margin-left: 20%;
+}
