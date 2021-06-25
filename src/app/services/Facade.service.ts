@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FacadeService {
 
-  commentData: Array<{}> = [];
+  commentData: Array<[any, any]> = [];
   timerFlag = 0;
+  // subject = new BehaviorSubject(0);
 
   constructor() { }
 
@@ -14,13 +16,15 @@ export class FacadeService {
     return this.commentData;
   }
 
-  addComment(commentData: { commentContent: any; commentTime: any; }): void {
+  addComment(commentData: any): void {
     this.commentData.push(commentData);
   }
 
-  startTimer(timerFlag: any) {
+  startTimer(timerFlag: number) {
     this.timerFlag = timerFlag;
-    console.log(this.timerFlag);
+    // this.subject.subscribe(console.log);
+    // this.subject.next(timerFlag);
+    // this.subject.subscribe(console.log);
   }
 
   getTimerFlag() {

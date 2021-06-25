@@ -10,7 +10,7 @@ export class CommentsComponent implements OnInit {
 
     constructor(private selector: FacadeService) { }
 
-    comments: Array<{}> = [];
+    comments: Array<[any, any]> = [];
     flag = 0;
 
     ngOnInit(): void {

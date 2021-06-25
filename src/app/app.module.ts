@@ -21,7 +21,8 @@ import { CommentsComponent } from './comments/comments.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

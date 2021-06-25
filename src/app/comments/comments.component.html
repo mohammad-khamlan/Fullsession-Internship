@@ -1,19 +1,14 @@
 <div class="frame" #scrollframe>
 
-    <div class="header row">
+    <div *ngFor="let comment of comments; let i = index" class="event row">
         <div class="col-sm">
-            <h4 id="headerContent">Comment Content</h4>
+            <p class="commentContent">{{comment[0]}}</p>
         </div>
 
         <div class="col-sm">
-            <h4 id="headerContent">Comment Time</h4>
-        </div>
-    </div>
-
-    <div *ngFor="let comment of comments" class="event row">
-        <div *ngFor="let item of comment | keyvalue" class="col-sm">
-            <p class="commentContent">{{item.value}}</p>
+            <p class="commentContent">{{comment[1]}}</p>
         </div>
 
     </div>
+
 </div>

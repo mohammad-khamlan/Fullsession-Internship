@@ -59,7 +59,7 @@ export class SmoothScrollingComponent implements OnInit {
   time: any = [];
   duration: any = [];
   data: any = [];
-  commentData: any = {};
+  commentData: any = [];
   indexCounter = 0;
 
   constructor(private httpClient: HttpClient, private selector: FacadeService) { }
@@ -87,7 +87,6 @@ export class SmoothScrollingComponent implements OnInit {
 
         if ((this.data[index].type === 3 && this.data[index].data.source === 2 && this.data[index].data.type === 2) || this.data[index].type === 4) {
           this.data[index].index = this.indexCounter;
-          console.log(occuranceTime.toFixed(0));
           this.events.push(this.data[index]);
           this.time.push(occuranceTime);
           this.duration.push(secondsDifference);
@@ -98,7 +97,6 @@ export class SmoothScrollingComponent implements OnInit {
     });
 
   }
-
 
 
 
@@ -121,7 +119,7 @@ export class SmoothScrollingComponent implements OnInit {
     var interval = setInterval(() => {
       this.commentData = this.selector.getCommentData();
       if (this.counter == this.events.length - 1) {
-        this.selector.startTimer(0);
+        // this.selector.startTimer(0);
         clearInterval(interval);
       }
 

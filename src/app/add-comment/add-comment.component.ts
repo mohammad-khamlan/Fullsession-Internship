@@ -33,10 +33,8 @@ export class AddCommentComponent implements OnInit {
 
   addComment(data: any) {
     const comment = data.textArea;
-    const commentData = {
-      commentContent: comment,
-      commentTime: this.commentTime
-    }
+    const commentData = [comment, this.commentTime]
+
 
     this.selector.addComment(commentData);
   }

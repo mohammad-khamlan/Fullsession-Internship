@@ -1,27 +1,41 @@
 <div class="frame" #scrollframe>
-  <div *ngFor="let event of events; let i = index" [ngStyle]="{'border-color': counter == i ? '#474aff':'white'}"
-    class="event row">
-    <i *ngIf="event.type == 3" class="fa fa-mouse-pointer icon"></i>
-    <i *ngIf="event.type == 4" class="fa fa-window-maximize icon"></i>
-    <div *ngIf="event.type == 3 && event.data.source == 2 && event.data.type == 2" class="col-sm">
-      <p class="eventContent">Click</p>
-    </div>
-    <div *ngIf="event.type == 4" class="col-sm">
-      <p class="eventContent">Visit page event</p>
-    </div>
-    <div *ngIf="event.type == 3 || event.type == 4" class="col-sm">
-      <p class="eventContent">{{event.type}}</p>
-    </div>
-    <div class="col-sm">
-      <p class="eventContent">{{time[i]}}</p>
-    </div>
-    <div class="col-sm">
-      <p class="eventContent">{{duration[i]}}</p>
+  <div *ngFor="let event of events; let i = index;">
+    <div [ngStyle]="{'border-color': counter == i ? '#474aff':'white'}" class="event row">
+      <i *ngIf="event.type == 3" class="fa fa-mouse-pointer icon"></i>
+      <i *ngIf="event.type == 4" class="fa fa-window-maximize icon"></i>
+      <div *ngIf="event.type == 3 && event.data.source == 2 && event.data.type == 2" class="col-sm">
+        <p class="eventContent">Click</p>
+      </div>
+      <div *ngIf="event.type == 4" class="col-sm">
+        <p class="eventContent">Visit page event</p>
+      </div>
+      <div *ngIf="event.type == 3 || event.type == 4" class="col-sm">
+        <p class="eventContent">{{event.type}}</p>
+      </div>
+      <div class="col-sm">
+        <p class="eventContent">{{time[i]}}</p>
+      </div>
+      <div class="col-sm">
+        <p class="eventContent">{{duration[i]}}</p>
+      </div>
+
+      <div *ngFor="let comment of commentData;" class="col-sm">
+        <div *ngIf="comment[1] == time[i]" class="col-sm">
+          <p class="eventContent">{{comment[0]}}</p>
+        </div>
+      </div>
+
     </div>
 
-    <div *ngIf="commentData.commentTime == event.index" class="col-sm">
-      <p class="eventContent">{{commentData.commentContent}}</p>
+
+    <div *ngFor="let comment of commentData;" id="tooltipDiv">
+      <i *ngIf="comment[1] > time[i] && time[i+1] > comment[1]" class="tooltip">
+        <div class="right">
+          <h5>Comment: {{comment[0]}}</h5>
+        </div>
+      </i>
     </div>
+
   </div>
 </div>
 
